@@ -1,5 +1,5 @@
-//---------------------- PWM PINS  ---------------------- D6 (ARDUINO) --> EN_A (MOTOR DRIVER)
-//---------------------- PWM PINS  ---------------------- D9 (ARDUINO) --> EN_B (MOTOR DRIVER)
+//---------------------- PWM PINS  ---------------------- A0 (ARDUINO) --> EN_A (MOTOR DRIVER)
+//---------------------- PWM PINS  ---------------------- A1 (ARDUINO) --> EN_B (MOTOR DRIVER)
 
 //--------------------------------------------- D2 (ARDUINO) --> IN-1 (MOTOR DRIVER) --> OUT1 OF MOTOR(+VE)
 //--------------------------------------------- D3 (ARDUINO) --> IN-2 (MOTOR DRIVER) --> OUT2 OF MOTOR
@@ -7,8 +7,8 @@
 //--------------------------------------------- D7 (ARDUINO) --> IN-4 (MOTOR DRIVER) --> OUT4 OF MOTOR
 
 
-const int LEFT_ENABLE = 6; // ENABLE PINs DECLARATION
-const int RIGHT_ENABLE = 9;
+const int LEFT_ENABLE = A0; // ENABLE PINs DECLARATION
+const int RIGHT_ENABLE = A1;
 
 const int IN1 = 2; // CONTROL PINs DECLARATION
 const int IN2 = 3;
