@@ -1,5 +1,5 @@
-//---------------------- PWM PINS  ---------------------- D6 (ARDUINO) --> EN_A (MOTOR DRIVER)
-//---------------------- PWM PINS  ---------------------- D9 (ARDUINO) --> EN_B (MOTOR DRIVER)
+//---------------------- PWM PINS  ---------------------- A0 (ARDUINO) --> EN_A (MOTOR DRIVER)
+//---------------------- PWM PINS  ---------------------- A1 (ARDUINO) --> EN_B (MOTOR DRIVER)
 
 //---------------------- RX PIN  ---------------------- D10 (ARDUINO) --> RX (HC05 BLUETOOTH MODULE)
 //---------------------- TX PIN  ---------------------- D11 (ARDUINO) --> TX (HC05 BLUETOOTH MODULE)
@@ -17,8 +17,8 @@ Servo myArm;
 
 char recivedData;  // Variable to store recived data
 
-const int LEFT_ENABLE = 6; // ENABLE PINs DECLARATION
-const int RIGHT_ENABLE = 9;
+const int LEFT_ENABLE = A0; // ENABLE PINs DECLARATION
+const int RIGHT_ENABLE = A1;
 
 const int IN1 = 2; // CONTROL PINs DECLARATION
 const int IN2 = 3;
