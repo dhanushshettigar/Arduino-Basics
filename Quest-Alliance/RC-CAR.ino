@@ -7,7 +7,8 @@
 //--------------------------------------------- D2 (ARDUINO) --> IN-1 (MOTOR DRIVER) --> OUT1 OF MOTOR(+VE)
 //--------------------------------------------- D3 (ARDUINO) --> IN-2 (MOTOR DRIVER) --> OUT2 OF MOTOR
 //--------------------------------------------- D4 (ARDUINO) --> IN-3 (MOTOR DRIVER) --> OUT3 OF MOTOR(+VE)
-//--------------------------------------------- D7 (ARDUINO) --> IN-4 (MOTOR DRIVER) --> OUT4 OF MOTOR
+//--------------------------------------------- D5 (ARDUINO) --> IN-4 (MOTOR DRIVER) --> OUT4 OF MOTOR
+
 
 #include <SoftwareSerial.h>
 
@@ -21,7 +22,7 @@ const int RIGHT_ENABLE = A1;
 const int IN1 = 2; // CONTROL PINs DECLARATION
 const int IN2 = 3;
 const int IN3 = 4;
-const int IN4 = 7;
+const int IN4 = 5;
 
 const int MOTOR_SPEED = 150; // ROTATION SPEED
 
@@ -37,13 +38,13 @@ void moveForward()
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
-  digitalWrite(IN4,LOW);
+  digitalWrite(IN4, LOW);
 }
 
 void moveBackward()
 {
   Set_Speed(MOTOR_SPEED);
-  digitalWrite(IRe1, LOW);
+  digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
@@ -69,7 +70,7 @@ void arcLeft()
 
 void spotRight()
 {
-  Set_Speed(MOTORe_SPEED);
+  Set_Speed(MOTOR_SPEED);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
@@ -82,7 +83,7 @@ void spotLeft()
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, HIGH);
-  digitalWrite(IRe4, LOW);
+  digitalWrite(IN4, LOW);
 }
 
 void Stop()
@@ -95,7 +96,7 @@ void Stop()
 }
 
 void setup() {
-  Serial.begin(9Re00);
+  Serial.begin(9600);
   btSerial.begin(9600);
   // pin declarations
   pinMode(IN1, OUTPUT);
