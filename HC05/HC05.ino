@@ -1,11 +1,11 @@
-//---------------------- RX PIN  ---------------------- D10 (ARDUINO) --> RX (HC05 BLUETOOTH MODULE)
-//---------------------- TX PIN  ---------------------- D11 (ARDUINO) --> TX (HC05 BLUETOOTH MODULE)
+//-------------------------------------------- D10 (ARDUINO) --> TX (HC05 BLUETOOTH MODULE)
+//-------------------------------------------- D11 (ARDUINO) --> RX (HC05 BLUETOOTH MODULE)
 
 #include <SoftwareSerial.h>
 
-SoftwareSerial btSerial(10, 11); // RX, TX
+SoftwareSerial btSerial(10, 11);
 
-char recivedData;  // Variable to store recived data
+char receivedData;
 
 void setup() {
   Serial.begin(9600);
@@ -15,7 +15,7 @@ void setup() {
 void loop() {
   if (btSerial.available() > 0)
   {
-    recivedData = btSerial.read();
-    Serial.println(recivedData);
+    receivedData = btSerial.read();
+    Serial.println(receivedData);
   }
 }

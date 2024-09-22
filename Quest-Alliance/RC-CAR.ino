@@ -1,8 +1,8 @@
 //---------------------- PWM PINS  ---------------------- A0 (ARDUINO) --> EN_A (MOTOR DRIVER)
 //---------------------- PWM PINS  ---------------------- A1 (ARDUINO) --> EN_B (MOTOR DRIVER)
 
-//---------------------- RX PIN  ---------------------- D10 (ARDUINO) --> RX (HC05 BLUETOOTH MODULE)
-//---------------------- TX PIN  ---------------------- D11 (ARDUINO) --> TX (HC05 BLUETOOTH MODULE)
+//-------------------------------------------- D10 (ARDUINO) --> TX (HC05 BLUETOOTH MODULE)
+//-------------------------------------------- D11 (ARDUINO) --> RX (HC05 BLUETOOTH MODULE)
 
 //--------------------------------------------- D2 (ARDUINO) --> IN-1 (MOTOR DRIVER) --> OUT1 OF MOTOR(+VE)
 //--------------------------------------------- D3 (ARDUINO) --> IN-2 (MOTOR DRIVER) --> OUT2 OF MOTOR
@@ -11,9 +11,9 @@
 
 #include <SoftwareSerial.h>
 
-SoftwareSerial btSerial(10, 11); // RX, TX
+SoftwareSerial btSerial(10, 11);
 
-char recivedData;  // Variable to store recived data
+char receivedData;  // Variable to store received data
 
 const int LEFT_ENABLE = A0; // ENABLE PINs DECLARATION
 const int RIGHT_ENABLE = A1;
@@ -37,16 +37,18 @@ void moveForward()
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
+  digitalWrite(IN4,LOW);
 }
+
 void moveBackward()
 {
   Set_Speed(MOTOR_SPEED);
-  digitalWrite(IN1, LOW);
+  digitalWrite(IRe1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
+
 void arcRight()
 {
   Set_Speed(MOTOR_SPEED);
@@ -64,22 +66,25 @@ void arcLeft()
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 }
+
 void spotRight()
 {
-  Set_Speed(MOTOR_SPEED);
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
-}
-void spotLeft()
-{
-  Set_Speed(MOTOR_SPEED);
+  Set_Speed(MOTORe_SPEED);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
+
+void spotLeft()
+{
+  Set_Speed(MOTOR_SPEED);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IRe4, LOW);
+}
+
 void Stop()
 {
   Set_Speed(0);
@@ -89,10 +94,8 @@ void Stop()
   digitalWrite(IN4, LOW);
 }
 
-
-
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9Re00);
   btSerial.begin(9600);
   // pin declarations
   pinMode(IN1, OUTPUT);
@@ -107,33 +110,33 @@ void loop()
 {
   if (btSerial.available() > 0)
   {
-    recivedData = btSerial.read();
-    Serial.println(recivedData);
-    if (recivedData == 'F')
+    receivedData = btSerial.read();
+    Serial.println(receivedData);
+    if (receivedData == 'F')
     {
       moveForward();
     }
-    else if (recivedData == 'B')
+    else if (receivedData == 'B')
     {
       moveBackward();
     }
-    else if (recivedData == 'R')
+    else if (receivedData == 'R')
     {
       spotRight();
     }
-    else if (recivedData == 'L')
+    else if (receivedData == 'L')
     {
       spotLeft();
     }
-    else if (recivedData == 'G')
+    else if (receivedData == 'I')
     {
       arcRight();
     }
-    else if (recivedData == 'I')
+    else if (receivedData == 'G')
     {
       arcLeft();
     }
-    else if (recivedData == 'S')
+    else if (receivedData == 'S')
     {
       Stop();
     }

@@ -29,8 +29,8 @@ void moveForward()
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
 }
+
 void moveBackward()
 {
   Set_Speed(MOTOR_SPEED);
@@ -39,6 +39,7 @@ void moveBackward()
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
+
 void arcRight()
 {
   Set_Speed(MOTOR_SPEED);
@@ -56,15 +57,8 @@ void arcLeft()
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 }
+
 void spotRight()
-{
-  Set_Speed(MOTOR_SPEED);
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
-}
-void spotLeft()
 {
   Set_Speed(MOTOR_SPEED);
   digitalWrite(IN1, HIGH);
@@ -72,6 +66,16 @@ void spotLeft()
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
+
+void spotLeft()
+{
+  Set_Speed(MOTOR_SPEED);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
 void Stop()
 {
   Set_Speed(0);
@@ -80,8 +84,6 @@ void Stop()
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, LOW);
 }
-
-
 
 void setup() {
   // pin declarations
